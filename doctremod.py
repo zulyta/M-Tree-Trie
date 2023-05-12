@@ -93,8 +93,8 @@ def search_documents_in_folder(folder_path):
 # Ejemplo de uso
 mtree = MTree(max_children=2)
 
-# Buscar documentos en una carpeta y agregarlos al árbol
-folder_path ='D:\CV'
+# Buscar documentos en una carpeta y agregarlos al árbol 
+folder_path ='D:\CV' #URL de la carpeta
 documents = search_documents_in_folder(folder_path)
 for document in documents:
     content, filename = document
@@ -111,5 +111,3 @@ if len(results) > 0:
         print("- " + document_name)
 else:
     print("No se encontraron documentos con similitud de contenido.")
-
-# No se encontraron documentos 
