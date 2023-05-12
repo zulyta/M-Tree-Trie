@@ -111,3 +111,5 @@ if len(results) > 0:
         print("- " + document_name)
 else:
     print("No se encontraron documentos con similitud de contenido.")
+
+# No se encontraron documentos 
