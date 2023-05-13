@@ -93,7 +93,7 @@ def search_documents_in_folder(folder_path):
 mtree = MTree(max_children=2)
 
 # Buscar documentos en una carpeta y agregarlos al árbol 
-folder_path ='E:\Fichero' #URL de la carpeta
+folder_path ='D:\CV' #URL de la carpeta
 documents = search_documents_in_folder(folder_path)
 
 for document in documents:
@@ -101,7 +101,7 @@ for document in documents:
     mtree.insert(content, filename)
 
 # Realizar una búsqueda por similitud de contenido
-query = "SAP"
+query = "informe"
 
 results = mtree.search(query)
 
