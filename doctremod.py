@@ -1,7 +1,6 @@
 import math
 import os
 import PyPDF2
-#from docx import Document
 
 class MTreeNode:
     def __init__(self, data, name):
@@ -82,11 +81,7 @@ def search_documents_in_folder(folder_path):
                     for page in range(len(reader.pages)):
                         content += reader.pages[page].extract_text()
                     documents.append((content, filename))
-            #elif filename.endswith('.docx'):
-                # Leer contenido de un archivo Word
-                #doc = Document(file_path)
-                #content = ' '.join([p.text for p in doc.paragraphs])
-                #documents.append((content, filename))
+
     return documents
 
 # Ejemplo de uso

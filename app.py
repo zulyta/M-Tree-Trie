@@ -3,11 +3,8 @@ import os
 import PyPDF2
 import math
 
-# (Aquí va el resto del código que proporcionaste, desde "class MTreeNode" hasta "mtree = MTree(max_children=2)")
-from doctremod import MTreeNode, MTree, search_documents_in_folder
+from doctremod import MTree, search_documents_in_folder
 mtree = MTree(max_children=2)  # Añade esta línea
-
-# (Aquí va el resto del código que proporcionaste, desde "class MTreeNode" hasta "mtree = MTree(max_children=2)")
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
