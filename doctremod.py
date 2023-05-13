@@ -1,7 +1,7 @@
 import math
 import os
 import PyPDF2
-from docx import Document
+#from docx import Document
 
 class MTreeNode:
     def __init__(self, data, name):
@@ -38,23 +38,22 @@ class MTree:
             # Insertamos el dato en el hijo más cercano
             self._insert_recursive(data, name, closest_child)
 
-    def search(self, query, threshold):
+    def search(self, query):
         if self.root is None:
             return []
         else:
-            return self._search_recursive(query, threshold, self.root)
+            return self._search_recursive(query, self.root)
 
-    def _search_recursive(self, query, threshold, node):
+    def _search_recursive(self, query, node):
         results = []
 
         # Verificamos si el nodo actual coincide con el criterio de búsqueda
-        distance = self.calculate_distance(query, node.data)
-        if distance <= threshold:
+        if self.match_criteria(query, node.data):
             results.append(node.name)
 
         # Exploramos los hijos recursivamente
         for child in node.children:
-            results.extend(self._search_recursive(query, threshold, child))
+            results.extend(self._search_recursive(query, child))
 
         return results
 
@@ -94,17 +93,19 @@ def search_documents_in_folder(folder_path):
 mtree = MTree(max_children=2)
 
 # Buscar documentos en una carpeta y agregarlos al árbol 
-folder_path ='D:\CV' #URL de la carpeta
+folder_path ='E:\Fichero' #URL de la carpeta
 documents = search_documents_in_folder(folder_path)
+
 for document in documents:
     content, filename = document
     mtree.insert(content, filename)
 
 # Realizar una búsqueda por similitud de contenido
-query = "informe"
-threshold = 5  # Umbral de similitud
-results = mtree.search(query, threshold)
+query = "SAP"
 
+results = mtree.search(query)
+
+print(results)
 if len(results) > 0:
     print("Documentos con similitud de contenido:")
     for document_name in results:
